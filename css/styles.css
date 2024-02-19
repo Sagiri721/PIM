@@ -1,0 +1,180 @@
+:root {
+
+    --col1: #FDF4F5;
+    --col2: #BA90C6;
+    --col3: #E8A0BF;
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--col1);
+    height: 100vh;
+    margin: 0%;
+}
+
+.content {
+    
+    padding: 0 30px !important;
+    background-color: var(--col1);
+}
+
+html {
+    
+    width: 80%;
+    background-color: var(--col2);
+    margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+    color: black;
+}
+
+p, label, input, span {
+
+    color: black;
+}
+
+.prompt-form {
+
+    border: 3px dashed var(--col2);
+    padding: 10px;
+    width: fit-content;
+}
+
+.prompt-form li:hover {
+
+    color: #E8A0BF;
+}
+
+.no-style {
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.navbar {
+
+    width: 100%;
+    background-color: var(--col3);
+    overflow: hidden;
+}
+
+.hidden {
+
+    display: none;
+}
+
+.flex-simple h1, span {
+    width: fit-content;
+}
+
+.flex-around {
+
+    display: flex;
+    justify-content:space-around;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-simple h1 {
+    
+    margin-right: 20px;
+}
+
+.bookcover {
+
+    width: 128px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.bId {
+
+    font-size: small;
+    color: #BA90C6;
+    margin: auto 0;
+}
+
+.spaced-list li {
+
+    margin-bottom: 10px;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+}
+
+.book-form input, textarea, select {
+
+    margin-bottom: 20px;
+}
+
+.book-form label {
+
+    font-weight: bold;
+}
+
+.book-form textarea {
+
+    width: 100%;
+    height: 200px;
+}
+
+.columns {
+
+    display: flex;
+}
+
+.columns div{
+
+    width: 50%;
+}
+
+input, select {
+    width: fit-content;
+}
+
+button, input[type=submit] {
+    background-color: var(--col3);
+}
+
+select {
+    padding-right: 30px ;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.detail {
+
+    border-left: 3px solid #E8A0BF;
+    padding-left: 40px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+	
+    .divider-left {
+
+        margin-left: 20px; 
+        padding: 0 20px
+    }
+ 
+    html {
+    
+        width: 100%;
+    }
+}
