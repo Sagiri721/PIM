@@ -29,7 +29,7 @@ include "actions/validate_login.php";
 <body>
 
     <?php
-        include "components/navbar.htm";
+        include "components/navbar.php";
     ?>
 
     <div class="content">

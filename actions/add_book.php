@@ -29,7 +29,7 @@
 <body>
 
     <?php
-        include "../components/navbar.htm";
+        include "../components/navbar.php";
     ?>
 
     <div class="content">

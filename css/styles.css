@@ -83,13 +83,17 @@ p, label, input, span {
     justify-content:space-around;
 }
 
-.flex {
+.flex-simple {
     display: flex;
 }
 
 .flex-simple h1 {
     
     margin-right: 20px;
+}
+
+.flex-simple p {
+    margin: auto 5px;
 }
 
 .bookcover {
@@ -165,6 +169,68 @@ select {
     border-radius: 10px;
 }
 
+th {
+
+    padding: 3px 5px;
+    background-color: var(--col2);
+}
+
+table {
+    table-layout: auto !important;
+}
+
+td { 
+    padding: 3px 5px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
+}
+
+td, th {
+    font-size: 16px;
+}
+
+.read{
+
+    background-color: rgba(172, 255, 47, 0.200) !important;
+}
+
+.bought {
+    background-color: rgba(255, 255, 0, 0.200) !important;
+}
+
+.bnr {
+    background-color: rgba(255, 166, 0, 0.200) !important;
+}
+
+.circle {
+    width: 13px !important;
+    height: 13px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    margin: 5px;
+
+    border: 1px solid #000;
+}
+
+.smolselect {
+
+    margin: auto;
+    width: 100% !important;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    html {
+    
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width: 800px) {
 	
     .divider-left {
@@ -172,9 +238,19 @@ select {
         margin-left: 20px; 
         padding: 0 20px
     }
- 
-    html {
-    
-        width: 100%;
+
+    td, th {
+
+        font-size: 12px;
     }
+
+    .extra{
+        display: none;
+    }
+
+    .smolselect {
+
+        font-size: 10px;
+    }
+    
 }
