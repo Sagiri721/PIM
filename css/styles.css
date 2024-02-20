@@ -204,15 +204,18 @@ td, th {
 }
 
 .circle {
+
+    aspect-ratio: 1/1;
     width: 13px !important;
-    height: 13px;
+    height: 13px !important;
     line-height: 500px;
     border-radius: 50%;
     font-size: 50px;
     color: #fff;
     text-align: center;
     background: #000;
-    margin: 5px;
+
+    margin: auto 5px;
 
     border: 1px solid #000;
 }
@@ -221,6 +224,8 @@ td, th {
 
     margin: auto;
     width: 100% !important;
+    
+    background-color: transparent;
 }
 
 @media only screen and (max-width: 1000px) {

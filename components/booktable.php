@@ -11,7 +11,7 @@
     <p>Comprado</p>
 
     <div class="circle" style="background-color: orange"></div>
-    <p>Lido mas não adquirido</p>
+    <p>Lido, não adquirido</p>
 </div>
 
 <br>
@@ -39,23 +39,25 @@
             $colSelect = implode("", array_map(function($collection){
                 return "<option value=\"" . $collection["id"] . "\">" . $collection["name"] . "</option>";
             }, $collections));
-
+            
+            
             foreach($bookTable as $book){
+                $generalId = hexdec( uniqid() );
         ?>
 
-            <tr class="<?php echo (($book["isRead"] && !$book["isBought"]) ? "bnr" : (($book["isRead"]) ? "read" : ($book["isBought"] ? "bought" : ""))) ?>">
+            <tr id="<?php echo $generalId ?>" class="<?php echo (($book["isRead"] && !$book["isBought"]) ? "bnr" : (($book["isRead"]) ? "read" : ($book["isBought"] ? "bought" : ""))) ?>">
                 <td class="extra"><?php echo $book["id"] ?></td>
                 <td><?php echo $book["title"] ?></td>
                 <td><?php echo implode(", ", explode("</>", $book["authors"])) ?></td>
                 <td><?php echo $book["pageCount"] ?></td>
                 <td class="extra"><?php echo $book["date"] ?></td>
                 <td class="extra"><?php echo implode(", ", explode("</>", $book["categories"])) ?></td>
-                <td><?php echo "<label><input type=\"checkbox\" " . ($book["isRead"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
-                <td><?php echo "<label><input type=\"checkbox\" " . ($book["isBought"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
+                <td><?php echo "<label><input onchange=\"updateRow(".$generalId.")\" type=\"checkbox\" " . ($book["isRead"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
+                <td><?php echo "<label><input onchange=\"updateRow(".$generalId.")\" type=\"checkbox\" " . ($book["isBought"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
                 <td class="extra">
                     <?php 
                         $id = hexdec( uniqid() );
-                        echo "<select class=\"smolselect\" id=\"".$id."\">" . $colSelect . "</select>"; 
+                        echo "<select onchange=\"updateRow(".$generalId.")\" class=\"smolselect\" id=\"".$id."\">" . $colSelect . "</select>"; 
                     ?>
 
                     <script>
