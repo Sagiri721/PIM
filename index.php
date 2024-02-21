@@ -26,6 +26,13 @@ include "actions/validate_login.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- Import the Font Awesome library -->
     <link rel="stylesheet" href="css/styles.css">
 
+    <?php
+
+        if (isset($_GET["close"])){
+            echo "<script>window.close();</script>";
+        }
+
+    ?>
 </head>
 <body>
 
@@ -39,7 +46,6 @@ include "actions/validate_login.php";
             if (isset($_GET["error"])){
                 echo "<p style='color: red'>Não foi possível apagar esta colecção, esta é a única que existe</p>";
             }
-
         ?>
     
         <h1>Organizador de livros</h1> 

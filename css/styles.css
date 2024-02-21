@@ -73,6 +73,19 @@ p, label, input, span {
     display: none;
 }
 
+.thumbnail{
+    width: 50px !important;
+}
+
+.center {
+    margin: auto;
+}
+
+.hoverable:hover {
+
+    color: var(--col2);
+}
+
 .flex-simple h1, span {
     width: fit-content;
 }
@@ -236,6 +249,11 @@ td, th {
     }
 }
 
+.filters{
+
+    position: relative;
+}
+
 @media only screen and (max-width: 800px) {
 	
     .divider-left {
@@ -246,7 +264,7 @@ td, th {
 
     td, th {
 
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .extra{

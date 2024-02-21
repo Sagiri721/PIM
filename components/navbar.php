@@ -25,6 +25,7 @@
         <a href="/<?php echo $arrConfig["webName"] ?>/library.php" class="pseudo button icon-puzzle"><i class="fas fa-book"></i> Biblioteca pessoal</a>
         <a href="/<?php echo $arrConfig["webName"] ?>/actions/add_book.php" class="pseudo button icon-puzzle"> <i class="fas fa-plus"></i> Adicionar livros </a>
         <a href="#" class="pseudo button icon-puzzle"> <i class="fas fa-table"></i> Importar excel </a>
+        <a href="/<?php echo $arrConfig["webName"] ?>/actions/logout.php" class="pseudo button icon-puzzle"> <i class="fa fa-arrow-left"></i> Sign out </a>
       </div>
     </nav>
     

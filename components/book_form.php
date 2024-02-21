@@ -109,4 +109,5 @@
 
 <input type="text" style="display:none" name="genres" id="hG"></input>
 <input type="text" style="display:none" name="authors" id="hA"></input>
+<input type="text" style="display:none" name="api" id="api"></input>
 </form>

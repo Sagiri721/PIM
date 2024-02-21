@@ -8,6 +8,7 @@ class Book {
     public function __construct($information){
 
         $this->rawData = $information;
+
         $this->id = $information["/id"];
         
         $this->image =  valueOf($information["imageLinks/thumbnail"]);
@@ -30,7 +31,7 @@ class Book {
         $this->date = valueOf($information["volumeInfo/publishedDate"]);
         $this->pages = valueOf($information["volumeInfo/pageCount"]);
 
-        $this->googleBooks = valueOf($information["volumeInfo/canonicalVolumeLink"]);
+        $this->googleBooks = valueOf($information["/selfLink"]);
 
         if (isset($information["categories/0"])){
     

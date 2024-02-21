@@ -13,7 +13,9 @@
     }
 
     $id = RunQuery("SELECT id FROM category WHERE name = '".$_GET["category"]."'")[0]["id"];
-    $delete = "UPDATE books SET grouping = '1' WHERE grouping = '".$id."'";
+    $protectedCategory = RunQuery("SELECT id FROM category WHERE owner = " . $_SESSION["login-id"] . " AND protected = 1")[0]["id"];
+
+    $delete = "UPDATE books SET grouping = $protectedCategory WHERE owner = ".$_SESSION["login-id"]." AND grouping = ".$id."";
     RunQuery($delete);
 
     $sql = "DELETE FROM category WHERE name = '" . $_GET["category"] . "' AND owner = " . $_SESSION["login-id"];

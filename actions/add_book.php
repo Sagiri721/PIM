@@ -40,7 +40,7 @@
             include "../components/book_form.php";
             
             $bookObj = new Book($_POST);
-            $text = "";
+            $text = "document.getElementById(\"api\").value = \"".$bookObj->googleBooks."\";\n";
             
             foreach ($bookObj as $key=>$value) {
 

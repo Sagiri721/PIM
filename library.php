@@ -21,6 +21,7 @@ include "actions/validate_login.php";
     crossorigin="anonymous">
     </script>
 
+    <script src="js/queryAPI.js"></script>
     <script src="js/page_actions.js"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- Import the Font Awesome library -->
@@ -38,9 +39,8 @@ include "actions/validate_login.php";
         <h1>Biblioteca pessoal</h1> 
 
         <?php
-        
+            include "components/book_filter.php";
             include "components/booktable.php";
-        
         ?>
 
     </div>

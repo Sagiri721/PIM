@@ -25,7 +25,7 @@
 
                     foreach ($categories as $key=>$value) { 
 
-                        $link = "<a style='color: var(--col2)' href='actions/delete_category.php?category=" . $value["name"] . "'><i class='fas fa-trash'></i></a>";
+                        $link = "<a style='color: black' href='actions/delete_category.php?category=" . $value["name"] . "'><i class='fas fa-trash'></i></a>";
                         $amount = RunQuery("SELECT COUNT(*) FROM books WHERE grouping='".$value["id"]."'")[0]["COUNT(*)"];
 
                         if($value["protected"]) $link = "";
