@@ -19,10 +19,10 @@ function updateRow(row, id, amount=0){
 
     const tableRow = document.getElementById(row.toString());
 
-    const read = tableRow.querySelectorAll("label>input")[0].checked;
-    const bought = tableRow.querySelectorAll("label>input")[1].checked;
+    const read = tableRow.querySelectorAll("select")[0].value;
+    const bought = tableRow.querySelectorAll("label>input")[0].checked;
 
-    const collection = tableRow.querySelectorAll("select")[0].value;
+    const collection = tableRow.querySelectorAll("select")[1].value;
     const myScroll = tableRow.offsetTop;
 
     $.ajax({
@@ -34,6 +34,8 @@ function updateRow(row, id, amount=0){
             // Reload page and scroll
             window.location.reload();
             tableRow.offsetTop = myScroll;
+
+            console.log(data);
         },
         error: function (xhr, exception) {
 

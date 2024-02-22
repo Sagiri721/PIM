@@ -23,8 +23,7 @@
     }
 
     $sql = "UPDATE books SET $incr, isRead = " . $_GET["isRead"] . ", isBought = " . $_GET["isBought"] . ", grouping = " . $_GET["collection"] . " WHERE id = " . $_GET["id"];
-
     RunQuery($sql);
 
-    echo 0;
+    echo $sql;
 ?>

@@ -70,6 +70,19 @@
               </label>
             <br>
 
+            <br>
+            <label for="">Linguagem: </label>
+            <select name="language" id="language">
+                <?php
+                
+                    foreach($data["languages"] as $key=>$value) {
+                
+                        echo "<option value=" . $key . ">". $value . "</option>";
+                    }
+                
+                ?>
+            </select>
+
         </span></div>
     </div>
 

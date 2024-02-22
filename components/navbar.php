@@ -11,7 +11,7 @@
   include "data.php";
 ?>
 
-<div style="overflow: hidden;height: 40px"> 
+<div style="height: 40px"> 
     <nav class="navbar">
       <a href="#" class="brand">
         <span>Book sorter app</span>
@@ -30,4 +30,3 @@
     </nav>
     
     </div>
-    

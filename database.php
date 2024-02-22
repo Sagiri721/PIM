@@ -7,6 +7,8 @@ $arrConfig["connection"] = mysqli_connect(
     $arrConfig["databaseName"]
 );
 
+$arrConfig["connection"]->set_charset("utf8");
+
 function RunQuery($sql){
 
 	global $arrConfig;
@@ -29,6 +31,17 @@ function RunQuery($sql){
 		return 1;
 	} 
 	return 0;
+}
+
+function getColor($status, $bought) {
+
+	if(($status > 0 && $status < 5) && !$bought) return "bnr";
+	if(($status > 1 && $status < 5) && $bought) return "reading";
+
+	if($bought == 1 && $status == 0) return "bought";
+	if($status == 1 && $bought) return "read";
+
+	return "";
 }
 
 function AreCredentialRight($username, $password, $arrConfig) {

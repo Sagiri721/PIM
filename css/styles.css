@@ -41,11 +41,13 @@ p, label, input, span {
     border: 3px dashed var(--col2);
     padding: 10px;
     width: fit-content;
+    max-width: 700px;
+    margin: auto;
 }
 
 .prompt-form li:hover {
 
-    color: #E8A0BF;
+    cursor: grab;
 }
 
 .no-style {
@@ -63,9 +65,7 @@ p, label, input, span {
 
 .navbar {
 
-    width: 100%;
     background-color: var(--col3);
-    overflow: hidden;
 }
 
 .hidden {
@@ -107,6 +107,14 @@ p, label, input, span {
 
 .flex-simple p {
     margin: auto 5px;
+}
+
+.flag {
+
+    width: 30px;
+    margin: auto 5px;
+    position: relative;
+    top: 8px;
 }
 
 .bookcover {
@@ -209,11 +217,15 @@ td, th {
 }
 
 .bought {
-    background-color: rgba(255, 255, 0, 0.200) !important;
+    background-color: rgba(255, 0, 0, 0.200) !important;
 }
 
 .bnr {
     background-color: rgba(255, 166, 0, 0.200) !important;
+}
+
+.reading {
+    background-color: rgba(255, 255, 0, 0.200) !important;
 }
 
 .circle {
@@ -262,8 +274,12 @@ td, th {
         padding: 0 20px
     }
 
-    td, th {
+    .zoom {
+        font-size: 13px;
+    }
 
+    td, th 
+    {
         font-size: 11px;
     }
 

@@ -8,16 +8,22 @@
     $read = "";
     $repeated = "";
     $title = "";
+    $lang = "";
 
     if(isset($_GET["order"]))   $order = $_GET["order"];
     if(isset($_GET["orientation"]))   $orientation = $_GET["orientation"];
     if(isset($_GET["collection"]) && $_GET["collection"] != "") $collection = "AND grouping = " . $_GET["collection"];
     if(isset($_GET["bought"])) $bought = "AND isBought = 1";
-    if(isset($_GET["read"])) $read = "AND isRead = 1";
+    if(isset($_GET["read"]) && $_GET["read"] != "") $read = "AND isRead = " . $_GET["read"];
     if(isset($_GET["repeated"])) $repeated = "AND copies <= 1";
     if(isset($_GET["search"])) $title = "AND (title LIKE '%" . $_GET["search"] . "%' OR authors LIKE '%" . $_GET["search"] . "%')";
+    if(isset($_GET["language"]) && $_GET["language"] != ""){
+      
+        if($_GET["language"] == "other") $_GET["language"] = "";
+        $lang = "AND lang = '" . $_GET["language"] . "'";
+    }
     
-    $query = "SELECT * FROM books WHERE owner = " . strval($_SESSION["login-id"]) . " $collection $bought $read $repeated $title ORDER BY $order $orientation";
+    $query = "SELECT * FROM books WHERE owner = " . strval($_SESSION["login-id"]) . " $collection $bought $read $repeated $title $lang ORDER BY $order $orientation";
     $bookTable = RunQuery($query);
 
     $results = count($bookTable);
@@ -25,13 +31,16 @@
 
 <div class="flex-simple">
     <div class="circle" style="background-color: yellowgreen"></div>
-    <p>Lido</p>
+    <p>Leitura terminada</p>
 
     <div class="circle" style="background-color: yellow"></div>
-    <p>Comprado</p>
+    <p>Em leitura</p>
 
     <div class="circle" style="background-color: orange"></div>
     <p>Lido, não adquirido</p>
+
+    <div class="circle" style="background-color: red"></div>
+    <p>Comprado</p>
 </div>
 
 <br>
@@ -46,7 +55,7 @@
         <th>Título</th>
         <th>Autores</th>
         <th class="extra">Páginas</th>
-        <th>Data</th>
+        <th class="extra">Data</th>
         <th class="extra">Géneros</th>
         <th>Lido</th>
         <th>Comprado</th>
@@ -70,7 +79,7 @@
         ?>
 
 
-            <tr id="<?php echo $generalId ?>" class="<?php echo (($book["isRead"] && !$book["isBought"]) ? "bnr" : (($book["isRead"]) ? "read" : ($book["isBought"] ? "bought" : ""))) ?>">
+            <tr id="<?php echo $generalId ?>" class="<?php echo getColor($book["isRead"], $book["isBought"]) ?>">
                 <td class="center extra flex-around">
                     
                     <?php 
@@ -91,12 +100,26 @@
                 </td>
                 <td>
                     <?php echo $book["title"] ?>
+                    <?php if($book["lang"] != ""){ ?>
+                        <img class="flag" src="https://flagsapi.com/<?php echo strtoupper($book["lang"]) ?>/flat/64.png">
+                    <?php } ?>
                 </td>
                 <td><?php echo implode(", ", explode("</>", $book["authors"])) ?></td>
                 <td class="extra"><?php echo $book["pageCount"] ?></td>
-                <td><?php echo $book["date"] ?></td>
+                <td class="extra"><?php echo $book["date"] ?></td>
                 <td class="extra"><?php echo implode(", ", explode("</>", $book["categories"])) ?></td>
-                <td><?php echo "<label><input onchange=\"updateRow(".$generalId.", ".$book["id"].")\" type=\"checkbox\" " . ($book["isRead"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
+                <td>
+                    <select style="background-color: transparent" <?php echo "onchange=\"updateRow(".$generalId.", ".$book["id"].")\""; ?>>
+                        <?php 
+                            #echo "<label><input onchange=\"updateRow(".$generalId.", ".$book["id"].")\" type=\"checkbox\" " . ($book["isRead"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" 
+                            $i = 0;
+                            foreach($data["status"] as $status){
+                                echo "<option " . ($book["isRead"] == $i ? "selected" : "") . " value=\"" . $i . "\">" . $status . "</option>";
+                                $i += 1;
+                            }
+                        ?>
+                    </select>
+                </td>
                 <td><?php echo "<label><input onchange=\"updateRow(".$generalId.", ".$book["id"].")\" type=\"checkbox\" " . ($book["isBought"] ? "checked" : "") . "></input><span class=\"checkable\"></span></label>" ?></td>
                 <td class="extra">
                     <?php 

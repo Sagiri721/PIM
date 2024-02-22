@@ -2,7 +2,7 @@
 
 class Book {
 
-    public $id, $name, $subtitle, $authors, $date, $pages, $googleBooks, $categories, $outline, $image;
+    public $id, $name, $subtitle, $authors, $date, $pages, $googleBooks, $categories, $outline, $image, $language;
     private $rawData;
 
     public function __construct($information){
@@ -14,6 +14,7 @@ class Book {
         $this->image =  valueOf($information["imageLinks/thumbnail"]);
         $this->name = $information["volumeInfo/title"];
         $this->subtitle = valueOf($information["volumeInfo/subtitle"]);
+        $this->language = valueOf($information["volumeInfo/language"]);
 
         $flag = 0;
         while ($flag >= 0) {

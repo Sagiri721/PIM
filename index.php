@@ -48,13 +48,23 @@ include "actions/validate_login.php";
             }
         ?>
     
-        <h1>Organizador de livros</h1> 
+        <h1>Biblioteca Digital de <?php echo $_SESSION["login"]; ?></h1> 
 
         <div>
 
-            <?php include "components/category_creator.php" ?>
+        <div class="flex two-800">
+            <div><span>
+                <?php include "components/category_creator.php" ?>
+            </span></div>
+            <div class="full half-500 third-800"><span>
+                <?php include "components/searchbar.php" ?>
+            </span></div>  
+            
             <br>
-            <?php include "components/searchbar.php" ?>
+            
+            <div><span>
+                <?php include "components/recents.php" ?>
+            </span></div>
 
         </div>
     </div>

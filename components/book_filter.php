@@ -39,6 +39,37 @@
         </span></div>
 
         <div><span>
+            
+            <br>
+
+            <label for="">Linguagem: </label>
+            <?php if( isset($_GET["language"]) && $_GET["language"] != "" && $_GET["language"] != "other") { ?>
+                <img class="flag" src="https://flagsapi.com/<?php echo strtoupper($_GET["language"]) ?>/flat/64.png" alt="" />
+            <?php } ?>
+            <select name="language" id="language" onchange="this.form.submit()">
+                <option <?php if(!isset($_GET["language"])) echo "selected"; ?> value="" >Qualquer linguagem</option>
+                <?php
+                    foreach($data["languages"] as $key=>$value) {
+                        echo "<option " . ($_GET["language"] == $key ? "selected" : "") . " value=" . $key . ">". $value . "</option>";
+                    }
+                ?>
+            </select>
+            <br>
+            <label>
+                Estado de leitura
+                <select name="read" onchange="this.form.submit()">
+                    <option value="">Todos</option>
+                    <?php
+                    
+                        $i = 0;
+                        foreach($data["status"] as $key=>$value) {
+                            echo "<option ".((isset($_GET["read"]) && $_GET["read"] == $i) ? "selected" : "")." value=" . $i . ">". $value . "</option>";
+                            $i += 1;
+                        }
+                    
+                    ?>
+                </select>
+            </label>
 
             <br>
             
@@ -47,11 +78,6 @@
                 <span class="checkable">Apenas comprados</span>
             </label>
 
-            <label>
-                <input name="read" type="checkbox" onchange="this.form.submit()" <?php if($_GET["read"] == "on") echo "checked" ?>>
-                <span class="checkable">Apenas lidos</span>
-            </label>
-            <br>
             <label>
                 <input name="repeated" type="checkbox" onchange="this.form.submit()" <?php if($_GET["repeated"] == "on") echo "checked" ?>>
                 <span class="checkable">Esconder repetidos</span>

@@ -38,10 +38,12 @@ include "actions/validate_login.php";
     
         <h1>Biblioteca pessoal</h1> 
 
-        <?php
-            include "components/book_filter.php";
-            include "components/booktable.php";
-        ?>
+        <div class="zoom">
+            <?php
+                include "components/book_filter.php";
+                include "components/book_table.php";
+            ?>
+        </div>
 
     </div>
     

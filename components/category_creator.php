@@ -29,7 +29,7 @@
                         $amount = RunQuery("SELECT COUNT(*) FROM books WHERE grouping='".$value["id"]."'")[0]["COUNT(*)"];
 
                         if($value["protected"]) $link = "";
-                        echo "<li>" . $value["name"] . " ($amount) &emsp; $link </li>";
+                        echo "<li><a href=\"library.php?collection=".$value["id"]."\">" . $value["name"] . "</a> ($amount) &emsp; $link </li>";
                     }
                 ?>
             </ul>
