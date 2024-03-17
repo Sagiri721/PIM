@@ -1,5 +1,5 @@
 # Personal Library Manager
-Organizador de livros com auxilio da base de dados do Google Books
+Application to organize your personal library
 
 ## Objectives
 Creating an application that lets the user manage their own ==personal library database==, that is:
